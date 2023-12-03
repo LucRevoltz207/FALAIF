@@ -1,40 +1,93 @@
-* {
-    box-sizing: border-box;
-    padding: 0%;
-    margin: 0%;
-}
 @import url('https://fonts.googleapis.com/css2?family=Marcellus&family=Roboto+Slab&family=Signika&display=swap');
-
-a {
-    text-decoration: none;
-    color: inherit;
-    
-}
 body {
-    font-family: 'Marcellus', Roboto Slab;
-}
-#logo {
-    color: rgb(6, 68, 23);
-}
-
-#navbar {
-    width: 100%;
-    background-color: #4ea93b;
-    height: 50px;
-    padding: 30px;
-}
-#logo {
-    text-transform: uppercase;
-}
-#navbar-container {
-    width: 80%;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #003366; /* Cor de fundo do IFSP */
+    color: #FFFFFF; /* Cor do texto */
+  }
+  header {
+    background-color: #FFCC00;
+    padding: 20px;
     display: flex;
-    justify-content: space-between;
-}
-#navbar-items {
-    padding-right: 20px;
+    justify-content: space-between; /* Para alinhar os itens à esquerda e à direita */
+    align-items: center; /* Para centralizar verticalmente */
+  }
+  
+  #header-container {
     display: flex;
     align-items: center;
-    text-transform: uppercase;
-    list-style: none;
-}
+  }
+  
+  #logo img {
+    width: 10vh; /* Ajuste o tamanho da imagem conforme necessário */
+    margin-right: 10px; /* Espaçamento entre a imagem e o texto */
+  }
+  
+  #logo-text h1 {
+    margin: 0; /* Remover margem padrão do h1 */
+    font-size: 1.5rem; /* Ajuste o tamanho da fonte conforme necessário */
+  }
+  .text-section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 20px;
+    flex-direction: column;
+  }
+  .text-card {
+    background-color: #FFFFFF;
+    width: 30vh;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .text-card h2 {
+    color: #003366;
+  }
+  
+  .text-card img {
+    padding-left: 80px;
+    width: 20%;
+  }
+  
+  .like {
+    display: flex;
+    align-items: center;
+  }
+  
+  .text-card p {
+    color: #333333;
+  }
+  
+  .like-btn {
+    display: inline-block;
+    background-color: #FFCC00;
+    color: #003366;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .like-btn:hover {
+    background-color: #FFD633;
+  }
+  /* Media query para telas menores (máximo 600px de largura) */
+@media screen and (max-width: 600px) {
+    #logo img {
+      width: 60px; /* Ajuste para telas menores */
+    }
+  
+    .text-card {
+      width: calc(100% - 20px); /* Ajuste para telas menores */
+    }
+  
+    .text-card img {
+      width: 40%; /* Ajuste para telas menores */
+    }
+  }
+  
+  
