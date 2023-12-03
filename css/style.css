@@ -8,13 +8,18 @@
 a {
     text-decoration: none;
     color: inherit;
+    
 }
 body {
     font-family: 'Marcellus', Roboto Slab;
 }
+#logo {
+    color: rgb(6, 68, 23);
+}
+
 #navbar {
     width: 100%;
-    background-color: rgb(23, 156, 45);
+    background-color: #4ea93b;
     height: 50px;
     padding: 30px;
 }
