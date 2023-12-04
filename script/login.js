@@ -18,7 +18,7 @@ function validateEmail(event) {
 }
 
 function goToIndex() {
-  window.location.href = '/pags/main.html';
+  window.location.href = '../pags/main.html';
 }
 
 function displayLoginError() {
