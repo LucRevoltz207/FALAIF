@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>FALAIF</title>
+  <link rel="stylesheet" href="/css/publicar.css">
+</head>
+<body>
+  <section id="publicar-section">
+    <h2>Publicar</h2>
+    <form action="/processar-publicacao" method="post" onsubmit="adicionarPost(event)">
+      <textarea name="conteudo" placeholder="O que você está pensando?"></textarea>
+      <input type="file" name="imagem" accept="image/*">
+      <button type="submit">Publicar</button>
+    </form>
+  </section>
+
+  <div id="posts-container"></div>
+
+  <script src="/script/publicar.js"></script>
+  
+</body>
+</html>

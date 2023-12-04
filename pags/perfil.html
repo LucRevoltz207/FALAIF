@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>FALAI</title>
+  <link rel="stylesheet" href="/css/perfil.css">
+</head>
+<body>
+  <div class="profile-container">
+    <h2>Perfil do Usuário</h2>
+    <div class="user-info">
+      <div class="avatar">
+        <img src="default-avatar.png" alt="Foto de Perfil" id="user-avatar">
+        <input type="file" accept=".jpg, .jpeg, .png" id="avatar-input" style="display: none;">
+        <label for="avatar-input" id="change-avatar">Trocar Foto</label>
+      </div>
+      <div class="user-details" id="user-details">
+        <p><strong>Email:</strong> <span id="user-email">example@email.com</span></p>
+        <p><strong>Nome:</strong> <span id="user-name">Nome do Usuário</span></p>
+        <p><strong>Idade:</strong> <span id="user-age">20 anos</span></p>
+        <p><strong>Curso:</strong> <span id="user-course">Curso</span></p>
+        <p><strong>Ano:</strong> <span id="user-year">Ano do Curso</span></p>
+        <button onclick="editProfile()">Editar</button>
+      </div>
+    </div>
+    <a href="/index.html" class="back-btn">&larr; Voltar para Posts</a>
+  </div>
+
+  <script src="/script/perfil.js"></script> <!-- Importe seu arquivo JavaScript -->
+</body>
+</html>
+
