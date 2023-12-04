@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>FALAIF</title>
+  <link rel="stylesheet" href="css/login.css">
+  <link rel="shortcut icon" href="/img/logoicon.ico" type="image/x-icon">
+</head>
+<body>
+  <div class="login-container">
+    <h2>Login</h2>
+    <form id="login-form" onsubmit="validateEmail(event)">
+      <div class="input-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="input-group">
+        <label for="password">Senha:</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+      <button type="submit">Entrar</button>
+    </form>
+    <p id="login-error" style="color: red; display: none;">Usuário não encontrado. Por favor, verifique suas credenciais.</p>
+    <p>Não tem uma conta? <a href="registro.html">Registre-se aqui</a>.</p>
+    <a href="index.html" class="back-btn"> Voltar</a>
+  </div>
+
+  <script src="script/login.js"></script>
+
+</body>
+</html>

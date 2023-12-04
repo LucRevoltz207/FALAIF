@@ -1,13 +1,27 @@
 function validateEmail(event) {
-    event.preventDefault(); // Evita o envio do formulário padrão para teste
-  
-    const emailInput = document.getElementById('email');
-    const email = emailInput.value.toLowerCase();
-  
-    if (email.endsWith('@aluno.ifsp.edu.br')) {
-      window.location.href = '/index.html'; // Redireciona para /index.html
-    } else {
-      alert('Por favor, insira um email do IFSP válido.');
-    }
+  event.preventDefault();
+
+  const emailInput = document.getElementById('email');
+  const passwordInput = document.getElementById('password');
+  const email = emailInput.value.toLowerCase();
+  const password = passwordInput.value;
+
+
+  const storedEmail = localStorage.getItem('email');
+  const storedPassword = localStorage.getItem('senha');
+
+  if (email === storedEmail && password === storedPassword) {
+    goToIndex(); 
+  } else {
+    displayLoginError();
   }
-  
+}
+
+function goToIndex() {
+  window.location.href = 'index.html';
+}
+
+function displayLoginError() {
+  const loginError = document.getElementById('login-error');
+  loginError.style.display = 'block';
+}

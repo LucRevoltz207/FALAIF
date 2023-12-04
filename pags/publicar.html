@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>FALAIF</title>
+  <style>
+    body {
+      font-family: 'Roboto Slab', 'Marcellus', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #003366;
+      color: #FFFFFF;
+    }
+  
+    #publicar-section {
+      background-color: #FFCC00;
+      padding: 20px;
+      border-radius: 8px;
+      margin: 20px 0;
+    }
+  
+    #publicar-section h2 {
+      color: #003366;
+    }
+  
+    #publicar-section form {
+      display: flex;
+      flex-direction: column;
+    }
+  
+    #publicar-section textarea {
+      margin-bottom: 10px;
+      padding: 10px;
+      border: 1px solid #003366;
+      border-radius: 4px;
+    }
+  
+    #publicar-section input[type="file"] {
+      margin-bottom: 10px;
+    }
+  
+    #publicar-section button {
+      background-color: #003366;
+      color: #FFCC00;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  
+    #publicar-section button:hover {
+      background-color: #FFD633;
+    }
+
+    #posts-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+  
+    .text-card {
+      background-color: #FFFFFF;
+      width: 30%;
+      padding: 20px;
+      margin: 10px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+  
+    .text-card h2 {
+      color: #003366;
+    }
+  
+    .text-card img {
+      width: 100%;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <section id="publicar-section">
+    <h2>Publicar</h2>
+    <form action="/processar-publicacao" method="post" onsubmit="adicionarPost(event)">
+      <textarea name="conteudo" placeholder="O que você está pensando?"></textarea>
+      <input type="file" name="imagem" accept="image/*">
+      <button type="submit">Publicar</button>
+    </form>
+  </section>
+
+  <div id="posts-container"></div>
+
+  <script>
+    let contadorPosts = 0;
+
+    function adicionarPost(event) {
+  event.preventDefault();
+
+  const conteudo = document.querySelector('textarea[name="conteudo"]').value;
+  const imagem = document.querySelector('input[name="imagem"]').files[0];
+
+  if (conteudo.trim() !== '' || imagem) {
+    contadorPosts++;
+
+    const postsContainer = window.opener.document.getElementById('posts-container');
+    const novoPost = document.createElement('div');
+    novoPost.className = 'text-card';
+    novoPost.innerHTML = `
+      <h2>Novo Post ${contadorPosts}</h2>
+      <p>${conteudo}</p>
+      ${imagem ? `<img src="${URL.createObjectURL(imagem)}" alt="Imagem do Post">` : ''}
+      <div class="like">
+        <span class="like-btn" onclick="likePost(this)">Curtir</span>
+        <img src="img/coracaonoback.png" alt="">
+        <p class="likes-count">0</p>
+      </div>
+    `;
+
+    postsContainer.appendChild(novoPost);
+
+    document.querySelector('form').reset(); // Limpar o formulário após a publicação
+
+    // Redirecionar para a página index.html
+    window.location.href = 'pags/index.html';
+  }
+}
+
+function likePost(button) {
+  const likesCount = button.nextElementSibling.nextElementSibling;
+  let currentLikes = parseInt(likesCount.textContent);
+  currentLikes++;
+  likesCount.textContent = currentLikes;
+}
+  </script>
+</body>
+</html>
