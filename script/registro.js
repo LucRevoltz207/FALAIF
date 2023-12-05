@@ -1,14 +1,13 @@
-function toggleMostrarSenha() {
+function togglePasswordVisibility() {
   const senhaInput = document.getElementById('password');
-  const confirmacaoSenhaInput = document.getElementById('confirmacao-senha');
+  const confirmacaoSenhaInput = document.getElementById('confirm-password'); // Corrigido aqui
 
   senhaInput.type = senhaInput.type === 'password' ? 'text' : 'password';
   confirmacaoSenhaInput.type = confirmacaoSenhaInput.type === 'password' ? 'text' : 'password';
 }
 
 function validarSenhaForte(senha) {
-  
-  const regexSenhaForte = /^(?=.[a-z])(?=.[A-Z])(?=.*\d).{8,}$/;
+  const regexSenhaForte = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/; // Atualizada a expressão regular para validação de senha forte
   return regexSenhaForte.test(senha);
 }
 
@@ -18,7 +17,7 @@ function submitRegistro(event) {
   const nomeInput = document.getElementById('nome');
   const emailInput = document.getElementById('email');
   const senhaInput = document.getElementById('password');
-  const confirmacaoSenhaInput = document.getElementById('confirmacao-senha');
+  const confirmacaoSenhaInput = document.getElementById('confirm-password');
 
   const nome = nomeInput.value;
   const email = emailInput.value;
@@ -31,7 +30,7 @@ function submitRegistro(event) {
       localStorage.setItem('email', email);
       localStorage.setItem('senha', senha);
 
-      window.location.href = 'login.html';
+      window.location.href = '../pags/login.html';
     } else {
       alert('Senhas não correspondem ou não atendem aos critérios de força.');
     }
